@@ -1,0 +1,5 @@
+- name: 'Upgrade all packages'
+  become: true
+  apt:
+    upgrade: yes
+    update-cache: yes

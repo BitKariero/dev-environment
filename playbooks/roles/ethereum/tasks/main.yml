@@ -15,6 +15,18 @@
     dest: /home/vagrant/Mist.deb
     mode: 0740
 
-- name: Install Mist
+- name: 'Install Mist'
   apt: deb="/home/vagrant/Mist.deb"
   become: true
+
+- name: 'Add Mist RPC script to Desktop'
+  copy:
+    src: '{{ role_path }}/files/run-mist-rpc.sh'
+    dest: '/home/{{ ansible_ssh_user }}/Desktop/run-mist-rpc.sh'
+    mode: 0744
+
+- name: 'Add Geth script to Desktop'
+  copy:
+    src: '{{ role_path }}/files/run-geth.sh'
+    dest: '/home/{{ ansible_ssh_user }}/Desktop/run-geth.sh'
+    mode: 0744

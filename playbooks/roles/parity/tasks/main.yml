@@ -16,3 +16,9 @@
       (?i)Netstats:
         - 'n'
         - 'n'
+
+- name: 'Add Parity script to Desktop'
+  copy:
+    src: '{{ role_path }}/files/run-parity.sh'
+    dest: '/home/{{ ansible_ssh_user }}/Desktop/run-parity.sh'
+    mode: 0744
