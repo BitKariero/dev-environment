@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "bento/ubuntu-16.04"
+  config.vm.box = "bstoots/xubuntu-16.04-desktop-amd64"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
     vb.memory = "4096"
+    vb.cpus = "2"
 
     # Fix for Mac OS
     vb.customize ["modifyvm", :id, "--cableconnected1", "on"]

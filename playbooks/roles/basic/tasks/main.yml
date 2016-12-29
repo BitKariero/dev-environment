@@ -1,3 +1,11 @@
+- name: 'Disable automatic updates'
+  become: true
+  command: "{{ item }}"
+  with_items:
+  - systemctl stop apt-daily.service
+  - systemctl stop apt-daily.timer
+  - systemctl kill --kill-who=all apt-daily.service
+  
 - name: 'Add support for PPAs'
   become: true
   action: apt pkg={{item}} state=installed update-cache=yes
@@ -25,27 +33,3 @@
   apt:
     upgrade: yes
     update-cache: yes
-
-- name: 'Install xubuntu-desktop'
-  become: true
-  apt:
-    name: xubuntu-desktop
-
-- name: 'Install VirtualBox Guest Additions'
-  become: true
-  action: apt pkg={{item}} state=installed update-cache=yes
-  with_items:
-    - virtualbox-guest-dkms
-    - virtualbox-guest-x11
-    - virtualbox-guest-utils
-
-- name: restart machine
-  shell: sleep 2 && shutdown -r now "Restarting machine."
-  async: 1
-  poll: 0
-  become: true
-  ignore_errors: true
-
-- name: waiting for server to come back
-  local_action: wait_for host={{ inventory_hostname }} state=started delay=30 timeout=300
-  become: false
