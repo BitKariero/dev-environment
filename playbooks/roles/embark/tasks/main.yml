@@ -1,0 +1,20 @@
+- name: 'Download Node.js script'
+
+  get_url:
+    url: https://deb.nodesource.com/setup_6.x
+    dest: /home/{{ ansible_ssh_user }}/install_nodejs.sh
+    mode: 0740
+
+- name: 'Run Node.js script'
+  become: true
+  command: /home/{{ ansible_ssh_user }}/install_nodejs.sh
+
+- name: 'Install Node.js'
+  become: true
+  apt:
+    name: nodejs
+    update-cache: true
+
+- name: 'Install Embark'
+  become: yes
+  command: npm -g install embark

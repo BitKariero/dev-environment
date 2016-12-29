@@ -1,2 +1,2 @@
 #!/bin/sh
-parity --chain=morden --warp
+parity --testnet --warp
