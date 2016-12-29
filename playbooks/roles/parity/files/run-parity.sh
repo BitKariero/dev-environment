@@ -1,2 +1,2 @@
 #!/bin/sh
-parity --testnet --warp
+parity ui --testnet --warp

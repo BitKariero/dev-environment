@@ -1,2 +1,2 @@
 #!/bin/sh
-geth --testnet --fast --cache=1024 --jitvm
+geth --rpc --testnet --fast --cache=1024 --jitvm console
