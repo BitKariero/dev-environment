@@ -32,6 +32,14 @@ For login, the username is `vagrant` and the password is `vagrant`.
 * `mist` –> `run-mist-rpc.sh` on *Desktop/*, automatically connects to the running geth/parity instance
 * `embark` – see [instructions](https://github.com/iurimatias/embark-framework)
 
+## Updating the box
+
+If you want to bring your VM to the latest version, you don't need to re-create
+it from scratch.
+
+Just `git pull` and then run `vagrant provision` on the host when the VM is
+turned on.
+
 ## Notes
 
 We recommend using `parity` for day-to-day usage.
