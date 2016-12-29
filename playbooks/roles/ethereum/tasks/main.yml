@@ -1,0 +1,20 @@
+- name: 'Add ppa:ethereum/ethereum'
+  become: true
+  apt_repository:
+    repo: 'ppa:ethereum/ethereum'
+
+- name: 'Install Ethereum'
+  become: yes
+  apt:
+    name: ethereum
+    update-cache: yes
+
+- name: 'Download Mist .deb'
+  get_url:
+    url: https://github.com/ethereum/mist/releases/download/v0.8.8/Mist-linux64-0-8-8.deb
+    dest: /home/vagrant/Mist.deb
+    mode: 0740
+
+- name: Install Mist
+  apt: deb="/home/vagrant/Mist.deb"
+  become: true

@@ -1,0 +1,18 @@
+# install this software? Y
+# install and configure a Netstats client? n
+
+- name: 'Download Parity install script'
+  get_url:
+    url: https://get.parity.io
+    dest: ~/install_parity.sh
+    mode: 0740
+
+- name: 'Install Parity'
+  expect:
+    command: ./install_parity.sh
+    responses:
+      (?i)software:
+        - 'Y'
+      (?i)Netstats:
+        - 'n'
+        - 'n'
