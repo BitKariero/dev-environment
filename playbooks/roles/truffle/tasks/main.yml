@@ -1,6 +1,6 @@
-- name: 'Install Embark'
+- name: 'Install Truffle'
   become: yes
-  command: npm -g install embark
+  command: npm -g install truffle
 
 - name: 'Install ethereumjs-testrpc'
   become: yes
