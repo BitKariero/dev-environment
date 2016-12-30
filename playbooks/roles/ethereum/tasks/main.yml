@@ -9,6 +9,12 @@
     name: ethereum
     update-cache: yes
 
+- name: 'Install ethminer'
+  become: yes
+  apt:
+    name: ethminer
+    update-cache: yes
+
 - name: 'Download Mist .deb'
   get_url:
     url: https://github.com/ethereum/mist/releases/download/v0.8.8/Mist-linux64-0-8-8.deb

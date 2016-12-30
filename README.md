@@ -40,6 +40,17 @@ it from scratch.
 Just `git pull` and then run `vagrant provision` on the host when the VM is
 turned on.
 
+## How to mine using Parity and Ethminer
+
+* Create an account in Parity if you don't have one already
+* Edit `run-parity.sh` in a text editor and append `--author
+[your_account_id_here]` to the command
+* After modifying the script, `./run-parity.sh`
+* Run `ethminer` to start mining
+
+If this is the first time you run `ethminer`, it will take a while to generate
+the DAG before the mining process can actually start.
+
 ## Notes
 
 We recommend using `parity` for day-to-day usage.
