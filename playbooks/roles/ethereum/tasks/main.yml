@@ -13,6 +13,11 @@
   become: yes
   apt:
     name: ethminer
+
+- name: 'Install solc'
+  become: yes
+  apt:
+    name: solc
     update-cache: yes
 
 - name: 'Download Mist .deb'
