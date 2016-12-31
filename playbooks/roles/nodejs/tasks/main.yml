@@ -14,3 +14,7 @@
   apt:
     name: nodejs
     update-cache: true
+
+- name: 'Install bower'
+  become: true
+  command: npm install -g bower

@@ -1,0 +1,18 @@
+- name: 'Download Explorer'
+  shell: git clone https://github.com/carsenk/explorer || true
+
+# - name: 'Install Explorer dependencies (npm install)'
+#   command: npm install
+#   args:
+#     chdir: /home/{{ ansible_ssh_user }}/explorer/
+#
+# - name: 'Install Explorer dependencies (bower install)'
+#   command: bower install
+#   args:
+#     chdir: /home/{{ ansible_ssh_user }}/explorer/
+
+- name: 'Add Explorer script to Desktop'
+  copy:
+    src: '{{ role_path }}/files/run-explorer.sh'
+    dest: '/home/{{ ansible_ssh_user }}/Desktop/run-explorer.sh'
+    mode: 0744
