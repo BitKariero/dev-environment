@@ -17,6 +17,10 @@ Vagrant.configure("2") do |config|
 
     # Fix for Mac OS
     vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
+
+    # Make life easier
+    vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
+    vb.customize ['modifyvm', :id, '--draganddrop', 'bidirectional']
   end
 
   config.vm.provision "ansible" do |ansible|
