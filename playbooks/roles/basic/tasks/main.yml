@@ -34,6 +34,16 @@
   apt:
     name: tmux
 
+- name: 'Install tree'
+  become: true
+  apt:
+    name: tree
+
+- name: 'Install nano'
+  become: true
+  apt:
+    name: nano
+
 - name: 'Create /home/vagrant/Desktop/'
   file:
     path: /home/vagrant/Desktop

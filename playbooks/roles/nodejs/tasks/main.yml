@@ -18,3 +18,7 @@
 - name: 'Install bower'
   become: true
   command: npm install -g bower
+
+- name: 'Install gulp'
+  become: true
+  command: npm install -g gulp
