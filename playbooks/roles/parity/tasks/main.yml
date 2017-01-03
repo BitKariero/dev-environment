@@ -4,12 +4,12 @@
 - name: 'Download Parity install script'
   get_url:
     url: https://get.parity.io
-    dest: ~/install_parity.sh
+    dest: /home/{{ ansible_ssh_user }}/Downloads/install_parity.sh
     mode: 0740
 
 - name: 'Install Parity'
   expect:
-    command: ./install_parity.sh
+    command: /home/{{ ansible_ssh_user }}/Downloads/install_parity.sh
     responses:
       (?i)software:
         - 'Y'

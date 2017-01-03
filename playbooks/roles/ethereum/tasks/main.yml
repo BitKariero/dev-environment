@@ -23,11 +23,11 @@
 - name: 'Download Mist .deb'
   get_url:
     url: https://github.com/ethereum/mist/releases/download/v0.8.8/Mist-linux64-0-8-8.deb
-    dest: /home/vagrant/Mist.deb
-    mode: 0740
+    dest: /home/{{ ansible_ssh_user }}/Downloads/Mist.deb
+    mode: 0744
 
 - name: 'Install Mist'
-  apt: deb="/home/vagrant/Mist.deb"
+  apt: deb="/home/{{ ansible_ssh_user }}/Downloads/Mist.deb"
   become: true
 
 - name: 'Add Mist RPC script to Desktop'

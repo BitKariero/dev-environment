@@ -22,11 +22,6 @@
     - python-software-properties
     - build-essential
 
-- name: 'Install aptitude'
-  become: true
-  apt:
-    name: aptitude
-
 - name: 'Install python-pexpect'
   become: true
   apt:
@@ -55,5 +50,11 @@
 - name: 'Create /home/vagrant/Desktop/'
   file:
     path: /home/vagrant/Desktop
+    state: directory
+    mode: 0755
+
+- name: 'Create /home/vagrant/Downloads/'
+  file:
+    path: /home/vagrant/Downloads
     state: directory
     mode: 0755

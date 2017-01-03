@@ -1,0 +1,23 @@
+# install this software? Y
+# install and configure a Netstats client? n
+
+- name: 'Download go-ipfs'
+  get_url:
+    url: https://dist.ipfs.io/go-ipfs/v0.4.4/go-ipfs_v0.4.4_linux-amd64.tar.gz
+    dest: /home/{{ ansible_ssh_user }}/Downloads/go-ipfs.tar.gz
+    mode: 0740
+
+- name: 'Extract go-ipfs'
+  command: tar xf go-ipfs.tar.gz
+  args:
+    chdir: /home/{{ ansible_ssh_user }}/Downloads
+
+- name: 'Install IPFS'
+  become: true
+  command: ./install.sh
+  args:
+    chdir: /home/{{ ansible_ssh_user }}/Downloads/go-ipfs/
+
+- name: 'Install js-ipfs'
+  become: true
+  command: npm install ipfs --global

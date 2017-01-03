@@ -2,12 +2,12 @@
 
   get_url:
     url: https://deb.nodesource.com/setup_6.x
-    dest: /home/{{ ansible_ssh_user }}/install_nodejs.sh
+    dest: /home/{{ ansible_ssh_user }}/Downloads/install_nodejs.sh
     mode: 0740
 
 - name: 'Run Node.js script'
   become: true
-  command: /home/{{ ansible_ssh_user }}/install_nodejs.sh
+  command: /home/{{ ansible_ssh_user }}/Downloads/install_nodejs.sh
 
 - name: 'Install Node.js'
   become: true
