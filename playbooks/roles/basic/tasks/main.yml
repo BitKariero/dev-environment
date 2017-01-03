@@ -6,6 +6,14 @@
   - systemctl stop apt-daily.timer
   - systemctl kill --kill-who=all apt-daily.service
 
+- name: 'install python2'
+  become: true
+  raw: apt-get -y install python-simplejson
+
+- name: 'install aptitude'
+  become: true
+  raw:  apt-get -y install aptitude
+
 - name: 'Add support for PPAs'
   become: true
   action: apt pkg={{item}} state=installed update-cache=yes
