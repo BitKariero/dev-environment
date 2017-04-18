@@ -47,6 +47,11 @@
   apt:
     name: nano
 
+- name: 'Install Chromium'
+  become: true
+  apt:
+    name: chromium-browser
+
 - name: 'Create /home/vagrant/Desktop/'
   file:
     path: /home/vagrant/Desktop
